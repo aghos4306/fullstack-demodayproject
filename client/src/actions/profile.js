@@ -15,7 +15,7 @@ import {
 // Get current users profile
 export const getCurrentProfile = () => async (dispatch) => {
   try {
-    const res = await axios.get('/api/profile/me');
+    const res = await api.get('/api/profile/me');
 
     dispatch({
       type: GET_PROFILE,
@@ -48,13 +48,13 @@ export const getProfiles = () => async (dispatch) => {
   }
 };
 
-// Get all profile by ID
+// Get profile by ID
 export const getProfileById = (userId) => async (dispatch) => {
   try {
     const res = await api.get(`/profile/user/${userId}`);
 
     dispatch({
-      type: GET_PROFILES,
+      type: GET_PROFILE,
       payload: res.data,
     });
   } catch (err) {
@@ -65,7 +65,7 @@ export const getProfileById = (userId) => async (dispatch) => {
   }
 };
 
-// Get Gibhub repos
+// Get Github repos
 export const getGithubRepos = (username) => async (dispatch) => {
   try {
     const res = await api.get(`/profile/github/${username}`);
@@ -138,6 +138,7 @@ export const addExperience = (formData, history) => async (dispatch) => {
     });
   }
 };
+
 // Add Education
 export const addEducation = (formData, history) => async (dispatch) => {
   try {
@@ -165,7 +166,7 @@ export const addEducation = (formData, history) => async (dispatch) => {
   }
 };
 
-//Delete education
+// Delete experience
 export const deleteExperience = (id) => async (dispatch) => {
   try {
     const res = await api.delete(`/profile/experience/${id}`);
