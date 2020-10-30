@@ -1,5 +1,4 @@
-import axios from "axios";
-import setAuthToken from "../utils/setAuthToken";
+import api from '../utils/'
 import { setAlert } from "./alert";
 import {
   REGISTER_SUCCESS,
