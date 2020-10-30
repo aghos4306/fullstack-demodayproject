@@ -1,20 +1,18 @@
 import React, { Fragment, useState } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addExperience } from "../../actions/profile";
 
 const AddExperience = ({ addExperience, history }) => {
   const [formData, setFormData] = useState({
-    company: "",
-    title: "",
-    location: "",
-    to: "",
-    current: "",
-    description: "",
+    company: '',
+    title: '',
+    location: '',
+    to: '',
+    current: false,
+    description: '',
   });
-
-  const [toDateDisabled, toggleDisabled] = useState(false);
 
   const { company, title, location, from, to, current, description } = formData;
 
@@ -65,54 +63,48 @@ const AddExperience = ({ addExperience, history }) => {
             onChange={(e) => onChange(e)}
           />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <h4>From Date</h4>
-          <input
-            type="date"
-            name="from"
-            value={from}
-            onChange={(e) => onChange(e)}
-          />
+          <input type="date" name="from" value={from} onChange={onChange} />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <p>
             <input
               type="checkbox"
               name="current"
               checked={current}
               value={current}
-              onChange={(e) => {
+              onChange={() => {
                 setFormData({ ...formData, current: !current });
-                toggleDisabled(!toDateDisabled);
               }}
-            />{" "}
-            Current Job{" "}
+            />{' '}
+            Current Job
           </p>
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <h4>To Date</h4>
           <input
             type="date"
             name="to"
             value={to}
-            onChange={(e) => onChange(e)}
-            disabled={toDateDisabled ? "disabled" : ""}
+            onChange={onChange}
+            disabled={current}
           />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <textarea
             name="description"
             cols="30"
             rows="5"
             placeholder="Job Description"
             value={description}
-            onChange={(e) => onChange(e)}
-          ></textarea>
+            onChange={onChange}
+          />
         </div>
-        <input type="submit" class="btn btn-primary my-1" />
-        <a class="btn btn-light my-1" href="dashboard.html">
+        <input type="submit" className="btn btn-primary my-1" />
+        <Link className="btn btn-light my-1" to="/dashboard">
           Go Back
-        </a>
+        </Link>
       </form>
     </Fragment>
   );
