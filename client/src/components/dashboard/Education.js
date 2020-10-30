@@ -1,24 +1,21 @@
-import React, { Fragment } from "react";
-import PropTypes from "prop-types";
-import Moment from "react-moment";
-import { connect } from "react-redux";
-import { deleteEducation } from "../../actions/profile";
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
+import Moment from 'react-moment';
+import moment from 'moment';
+import { connect } from 'react-redux';
+import { deleteEducation } from '../../actions/profile';
 
 const Education = ({ education, deleteEducation }) => {
-<<<<<<< HEAD
   const educations = education.map((edu) => (
-=======
-  const educations = education.map(edu => (
->>>>>>> cb7ac48d59e8482f7accf0de6f1019cc7b6d389d
     <tr key={edu._id}>
       <td>{edu.school}</td>
       <td className="hide-sm">{edu.degree}</td>
       <td>
-        <Moment format="YYYY/MM/DD">{edu.from}</Moment> -{" "}
+        <Moment format="YYYY/MM/DD">{moment.utc(edu.from)}</Moment> -{' '}
         {edu.to === null ? (
-          "Now"
+          'Now'
         ) : (
-          <Moment format="YYYY/MM/DD">{edu.to}</Moment>
+          <Moment format="YYYY/MM/DD">{moment.utc(edu.to)}</Moment>
         )}
       </td>
       <td>
