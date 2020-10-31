@@ -1,8 +1,8 @@
-import React, { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { addEducation } from "../../actions/profile";
+import React, { Fragment, useState } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { addEducation } from '../../actions/profile';
 
 const AddEducation = ({ addEducation, history }) => {
   const [formData, setFormData] = useState({
@@ -11,7 +11,7 @@ const AddEducation = ({ addEducation, history }) => {
     fieldofstudy: '',
     from: '',
     to: '',
-    current: '',
+    current: false,
     description: '',
   });
 
@@ -21,8 +21,8 @@ const AddEducation = ({ addEducation, history }) => {
     fieldofstudy,
     from,
     to,
-    current,
     description,
+    current,
   } = formData;
 
   const onChange = (e) =>
@@ -30,46 +30,46 @@ const AddEducation = ({ addEducation, history }) => {
 
   return (
     <Fragment>
-      <h1 class="large text-primary">Add Your Education</h1>
-      <p class="lead">
-        <i class="fas fa-code-branch"></i> Add any school or bootcamp that you
+      <h1 className="large text-primary">Add Your Education</h1>
+      <p className="lead">
+        <i className="fas fa-code-branch" /> Add any school or bootcamp that you
         have attended
       </p>
       <small>* = required field</small>
       <form
-        class="form"
+        className="form"
         onSubmit={(e) => {
           e.preventDefault();
           addEducation(formData, history);
         }}
       >
-        <div class="form-group">
+        <div className="form-group">
           <input
             type="text"
             placeholder="* School or Bootcamp"
             name="school"
             value={school}
-            onChange={(e) => onChange(e)}
+            onChange={onChange}
             required
           />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <input
             type="text"
             placeholder="* Degree or Certificate"
             name="degree"
             value={degree}
-            onChange={(e) => onChange(e)}
+            onChange={onChange}
             required
           />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <input
             type="text"
             placeholder="Field of Study"
             name="fieldofstudy"
             value={fieldofstudy}
-            onChange={(e) => onChange(e)}
+            onChange={onChange}
           />
         </div>
         <div className="form-group">

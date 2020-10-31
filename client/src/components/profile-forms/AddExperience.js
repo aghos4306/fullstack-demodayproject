@@ -1,14 +1,15 @@
-import React, { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { addExperience } from "../../actions/profile";
+import React, { Fragment, useState } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { addExperience } from '../../actions/profile';
 
 const AddExperience = ({ addExperience, history }) => {
   const [formData, setFormData] = useState({
     company: '',
     title: '',
     location: '',
+    from: '',
     to: '',
     current: false,
     description: '',
@@ -21,46 +22,46 @@ const AddExperience = ({ addExperience, history }) => {
 
   return (
     <Fragment>
-      <h1 class="large text-primary">Add An Experience</h1>
-      <p class="lead">
-        <i class="fas fa-code-branch"></i> Add any developer/programming
+      <h1 className="large text-primary">Add An Experience</h1>
+      <p className="lead">
+        <i className="fas fa-code-branch" /> Add any developer/programming
         positions that you have had in the past
       </p>
       <small>* = required field</small>
       <form
-        class="form"
+        className="form"
         onSubmit={(e) => {
           e.preventDefault();
           addExperience(formData, history);
         }}
       >
-        <div class="form-group">
+        <div className="form-group">
           <input
             type="text"
             placeholder="* Job Title"
             name="title"
             value={title}
-            onChange={(e) => onChange(e)}
+            onChange={onChange}
             required
           />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <input
             type="text"
             placeholder="* Company"
             name="company"
             value={company}
-            onChange={(e) => onChange(e)}
+            onChange={onChange}
             required
           />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <input
             type="text"
             placeholder="Location"
             name="location"
             value={location}
-            onChange={(e) => onChange(e)}
+            onChange={onChange}
           />
         </div>
         <div className="form-group">
