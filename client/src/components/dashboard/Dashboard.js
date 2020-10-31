@@ -7,10 +7,6 @@ import DashboardActions from "./DashboardActions";
 import Experience from "./Experience";
 import Education from "./Education";
 import { getCurrentProfile, deleteAccount } from "../../actions/profile";
-<<<<<<< HEAD
-=======
-
->>>>>>> cb7ac48d59e8482f7accf0de6f1019cc7b6d389d
 
 const Dashboard = ({
   getCurrentProfile,
