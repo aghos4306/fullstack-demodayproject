@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://aghomern:aghomern@mernconnector.ko3gn.mongodb.net/aghomern?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken",
+  "githubClientId": "18eb492ff0c07fd490e9",
+  "githubSecret": "2bddf01080b3b20f8397205b1cff1e99305a94b2"
+}
